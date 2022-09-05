@@ -1,0 +1,35 @@
+package tw.hibernatedemo.action;
+
+import java.io.Serializable;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import tw.hibernatedemo.model.Department;
+import tw.hibernatedemo.util.HibernateUtil;
+
+public class DemoDepartmentActionEx4 {
+
+	public static void main(String[] args) {
+		SessionFactory factory = HibernateUtil.getSessionFactory();
+		Session session = factory.openSession();
+		
+		Transaction tx = session.beginTransaction();
+		Department dept2 = new Department("數位發展部");
+		
+		session.save(dept2);
+		
+		
+//		session.beginTransaction();
+//		
+//		Department dept2 = new Department();
+//		dept2.setDeptname("餐具");
+//		Serializable id = session.save(dept2);
+//		System.out.println("id: "+id);
+//		
+//		session.getTransaction().commit();
+//		factory.close();
+	}
+
+}

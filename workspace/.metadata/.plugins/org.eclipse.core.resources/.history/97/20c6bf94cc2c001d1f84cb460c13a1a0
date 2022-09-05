@@ -1,0 +1,7 @@
+package tw.hibernatedemo.model;
+
+public class CompanyBean {
+
+	public CompanyBean() {}
+
+}
