@@ -1,0 +1,37 @@
+package tw.hibernatedemo.action;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import tw.hibernatedemo.model.Instructor;
+import tw.hibernatedemo.model.InstructorDetail;
+import tw.hibernatedemo.util.HibernateUtil;
+
+public class DemoOneToOneInstructorAction4 {
+
+	public static void main(String[] args) {
+		SessionFactory factory = HibernateUtil.getSessionFactory();
+		Session session = factory.getCurrentSession();
+
+		try {
+			session.beginTransaction();
+			
+			// 已知 fk_instructorDetail_id 是 101，取得 instructorName
+			
+			// 透過已知的 InstructorDetail 的 fk_instructorDetail_id 取得該筆資料
+			InstructorDetail detail101 = session.get(InstructorDetail.class, 101);
+			// 用 .getInstructor() 和 Instructor 連動來使用 getter 取得要的資料
+			Instructor ins1 = detail101.getInstructor();
+			System.out.println("Name: "+ ins1.getName());
+
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			System.out.println("ROLLBACK!!!");
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			HibernateUtil.closeSessionFactory();
+		}
+	}
+
+}

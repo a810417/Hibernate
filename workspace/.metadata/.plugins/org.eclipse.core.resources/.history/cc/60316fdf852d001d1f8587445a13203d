@@ -1,0 +1,10 @@
+package tw.hibernatedemo.action;
+
+public class DemoDepartmentActionEx5 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

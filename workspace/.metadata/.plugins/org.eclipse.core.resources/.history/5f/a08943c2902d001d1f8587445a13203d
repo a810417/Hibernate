@@ -1,0 +1,18 @@
+package tw.hibernatedemo.action;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.engine.spi.SessionFactoryImplementor;
+
+import tw.hibernatedemo.util.HibernateUtil;
+
+public class CompanyDAOAction {
+
+	public static void main(String[] args) {
+
+		SessionFactory factory = HibernateUtil.getSessionFactory();
+		Session session = factory.getCurrentSession();
+
+	}
+
+}

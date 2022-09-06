@@ -1,0 +1,43 @@
+package tw.hibernatedemo.service;
+
+import java.util.List;
+
+import org.hibernate.Session;
+
+import tw.hibernatedemo.model.CompanyBean;
+import tw.hibernatedemo.model.CompanyDAO;
+
+public class CompanyService implements CompanyServiceInterface {
+	
+	private CompanyDAO comDao;
+	
+	public CompanyService(Session session) {
+		this.comDao = new CompanyDAO(session);
+	}
+
+	@Override
+	public CompanyBean select(int comId) {
+		return null;
+	}
+
+	@Override
+	public List<CompanyBean> selectAll() {
+		return null;
+	}
+
+	@Override
+	public CompanyBean insert(CompanyBean comBean) {
+		return null;
+	}
+
+	@Override
+	public CompanyBean updateOne(int comId, String comName) {
+		return null;
+	}
+
+	@Override
+	public boolean delete(int comId) {
+		return false;
+	}
+
+}

@@ -1,0 +1,38 @@
+package tw.hibernatedemo.action;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import tw.hibernatedemo.model.Instructor;
+import tw.hibernatedemo.model.InstructorDetail;
+import tw.hibernatedemo.util.HibernateUtil;
+
+public class DemoOneToOneInstructorAction6 {
+
+	public static void main(String[] args) {
+		SessionFactory factory = HibernateUtil.getSessionFactory();
+		Session session = factory.getCurrentSession();
+
+		try {
+			session.beginTransaction();
+
+			// Jerry (Instructor 1) 想改電話
+
+			// 透過已知的 Instructor 1 取得該筆資料(目前 fk_instructorDetail_id 還是 null)
+			Instructor ins1 = session.get(Instructor.class, 1);
+
+			InstructorDetail detail = ins1.getInstructorDetail();
+			detail.setPhone("1234567890");
+			
+			
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			System.out.println("ROLLBACK!!!");
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			HibernateUtil.closeSessionFactory();
+		}
+	}
+
+}

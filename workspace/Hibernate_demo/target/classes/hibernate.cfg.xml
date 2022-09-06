@@ -33,6 +33,10 @@
         
         <!--  class mapping -->
         <mapping class="tw.hibernatedemo.model.Department"/>
+        <mapping class="tw.hibernatedemo.model.Instructor"/>
+        <mapping class="tw.hibernatedemo.model.InstructorDetail"/>
+        <mapping class="tw.hibernatedemo.model.Books"/>
+        <mapping class="tw.hibernatedemo.model.BookUsers"/>
     
         
     </session-factory>

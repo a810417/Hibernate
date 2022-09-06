@@ -1,0 +1,40 @@
+package tw.hibernatedemo.action;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import tw.hibernatedemo.model.Books;
+import tw.hibernatedemo.util.HibernateUtil;
+
+public class DemoBookOneToManyActionEx1 {
+
+	public static void main(String[] args) {
+		SessionFactory factory = HibernateUtil.getSessionFactory();
+		Session session = factory.getCurrentSession();
+		
+		// Tom 要借兩本書
+		try {
+			session.beginTransaction();
+			
+			Books book1 = new Books();
+			book1.setBooktitle("jQuery");
+			book1.setPublicYear("2018");
+			
+			Books book2 = new Books();
+			book2.setBooktitle("Spy Family");
+			book2.setPublicYear("2022-1");
+			
+			
+			session.getTransaction().commit();
+		}
+		catch(Exception e) {
+			session.getTransaction().rollback();
+			System.out.println("RollBack!!!");
+			e.printStackTrace();
+		}
+		finally {
+			HibernateUtil.closeSessionFactory();
+		}
+	}
+
+}

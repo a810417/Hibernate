@@ -1,0 +1,32 @@
+package tw.hibernatedemo.model;
+
+import java.util.List;
+
+public class CompanyDAO implements CompanyDaoInterface {
+
+	@Override
+	public CompanyBean insert(CompanyBean comBean) {
+		return null;
+	}
+
+	@Override
+	public CompanyBean select(int comId) {
+		return null;
+	}
+
+	@Override
+	public List<CompanyBean> selectAll() {
+		return null;
+	}
+
+	@Override
+	public CompanyBean updateOne(int comId, String comName) {
+		return null;
+	}
+
+	@Override
+	public boolean deleteOne(int comId) {
+		return false;
+	}
+
+}

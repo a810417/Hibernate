@@ -1,0 +1,35 @@
+package tw.hibernatedemo.action;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import tw.hibernatedemo.model.Instructor;
+import tw.hibernatedemo.model.InstructorDetail;
+import tw.hibernatedemo.util.HibernateUtil;
+
+public class DemoOneToOneInstructorAction2 {
+
+	public static void main(String[] args) {
+		SessionFactory factory = HibernateUtil.getSessionFactory();
+		Session session = factory.getCurrentSession();
+
+		try {
+			session.beginTransaction();
+			// 已知 Instructor Jerry 的 id 為 1 ，請查出他的 email
+			
+			// 透過已知的 Instructor id 取得該筆資料
+			Instructor ins1 = session.get(Instructor.class, 1);
+			// 用 getInstructorDetail 與 InstructorDetail 連動來使用 getter 方法取得要的資料
+			System.out.println("Email: "+ins1.getInstructorDetail().getEmail());
+
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			System.out.println("ROLLBACK!!!");
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			HibernateUtil.closeSessionFactory();
+		}
+	}
+
+}

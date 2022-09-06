@@ -1,0 +1,32 @@
+package tw.hibernatedemo.action;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import tw.hibernatedemo.util.HibernateUtil;
+
+public class DemoOneToOneInstructorAction {
+
+	public static void main(String[] args) {
+
+		SessionFactory factory = HibernateUtil.getSessionFactory();
+		Session session = factory.getCurrentSession();
+		
+		try {
+			session.beginTransaction();
+			
+			
+			
+			session.getTransaction().commit();
+					}
+		catch(Exception e) {
+			session.getTransaction().rollback();
+			System.out.println("RollBack!!!");
+			e.printStackTrace();
+		}
+		finally {
+			HibernateUtil.closeSessionFactory();
+		}
+	}
+
+}

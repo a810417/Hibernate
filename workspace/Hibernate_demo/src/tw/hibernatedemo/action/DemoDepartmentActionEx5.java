@@ -1,0 +1,44 @@
+package tw.hibernatedemo.action;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import tw.hibernatedemo.model.Department;
+import tw.hibernatedemo.util.HibernateUtil;
+
+public class DemoDepartmentActionEx5 {
+
+	public static void main(String[] args) {
+		SessionFactory factory = HibernateUtil.getSessionFactory();
+		Session session = factory.getCurrentSession();
+
+		try {
+			session.beginTransaction();
+
+			// get & load
+			Department dept2 = session.get(Department.class, 2);
+			System.out.println("name: " + dept2.getDeptname());
+			System.out.println("-------------------------------");
+			Department dept4 = session.load(Department.class, 4);
+			System.out.println("name: " + dept4.getDeptname());
+
+			System.out.println("-------------------------------");
+			// update & delete
+//			dept2.setDeptname("HRR"); // 修改只需使用 setXXX() , 不用 session 下指令
+			
+			session.delete(dept2);
+
+			session.getTransaction().commit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("ROLLBACK!");
+			session.getTransaction().rollback();
+		}
+
+		finally {
+			HibernateUtil.closeSessionFactory();
+
+		}
+	}
+}

@@ -1,0 +1,39 @@
+package tw.hibernatedemo.action;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import tw.hibernatedemo.model.CompanyBean;
+import tw.hibernatedemo.model.CompanyDAO;
+import tw.hibernatedemo.util.HibernateUtil;
+
+public class CompanyDAOAction {
+
+	public static void main(String[] args) {
+
+		SessionFactory factory = HibernateUtil.getSessionFactory();
+		Session session = factory.getCurrentSession();
+		
+		try {
+			session.beginTransaction();
+			
+			CompanyDAO dao = new CompanyDAO(session);	
+			CompanyBean comBean = new CompanyBean(1005, "再睡五分鐘");
+			
+			// insert
+//			dao.insert(comBean);
+			// update
+//			dao.updateOne(1005, "再睡10分鐘");
+			// select
+			CompanyBean bean1 = dao.select(1001);	
+			System.out.println("Name: "+bean1.getCompanyName());
+			
+			session.getTransaction().commit();
+		}
+		catch(Exception e) {}
+		finally {
+			HibernateUtil.closeSessionFactory();
+		}
+	}
+
+}

@@ -1,0 +1,5 @@
+package tw.hibernatedemo.model;
+
+public interface CompanyDaoInterface {
+
+}
