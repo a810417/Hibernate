@@ -2,11 +2,13 @@
 <section name="Workbench">
 	<section name="wizardPage">
 		<list key="groupId">
+			<item value="Hibernate_web"/>
 			<item value="Hibernate_demo"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="Hibernate_web"/>
 			<item value="Hibernate_demo"/>
 		</list>
 		<list key="version">

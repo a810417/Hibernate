@@ -59,3 +59,26 @@
 1662453066909	Extract local variable 'book1'
 1662453141486	Extract local variable 'user1'
 1662453291934	Extract local variable 'tempSet'
+1662601989788	Rename type 'Friends'
+1662601996914	Rename type 'MyGroups'
+1662602987112	Extract local variable 'factory'
+1662602997324	Extract local variable 'session'
+1662603210696	Extract local variable 'work'
+1662604126744	Extract local variable 'friends'
+1662604293489	Extract local variable 'iterator1'
+1662604364736	Extract local variable 'friend'
+1662605720779	Extract local variable 'bill'
+1662605901583	Extract local variable 'factory'
+1662605912134	Extract local variable 'session'
+1662606013870	Extract local variable 'workGroup'
+1662606041982	Extract local variable 'friends'
+1662607666781	Extract local variable 'mary'
+1662608847586	Extract local variable 'factory'
+1662608860218	Extract local variable 'session'
+1662609044614	Extract local variable 'query'
+1662609066694	Extract local variable 'list'
+1662609154518	Extract local variable 'hqlTest'
+1662620348674	Copy package
+1662620357224	Copy package
+1662620364895	Copy package
+1662620382991	Copy file
